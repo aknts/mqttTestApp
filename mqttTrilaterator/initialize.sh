@@ -6,7 +6,8 @@ COMPONENT="Trilaterator"
 echo "$COMPONENT build script"
 sudo apt-get update
 sudo apt-get -y install git
-sudo apt-get -y install nodejs
+sudo curl -sL https://deb.nodesource.com/setup_13.x | bash -
+sudo apt-get install -y nodejs
 sudo apt-get -y install npm
 sudo npm config set strict-ssl false
 sudo npm install forever -g
