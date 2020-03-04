@@ -1,26 +1,20 @@
 var config = {
-	// Select query, 1 and 3 for faster results, 2 and 4 for more random
-	qsw: 2,
-	// Set message rate, please keep it in hundreds, lowest value is 100 msec, harcoded to avoid flooding
-	msgr: 500,
-	// How many records the sample must have
-	sample: 12,
-	// Looping through the database to feed the flow
-	loop: 1,
-	// Enable console logging
-	log: 1,
+	// Set message rate, anything under 10 and you are risking making the broker crush
+	msgr: 10,
+	// Set message rate, anything under 10 and you are risking making the broker crush
+	reqr: 6000,
 	// The mqtt broker url, post must be included
-	mqttBroker: 'mqtt://localhost:1883',
+	mqttBroker: 'mqtt://itp17503.ddns.net:1883',
+	// The mqtt topic that the aggregator receives its commands
+	TrilateratorRxTopic: 'TrilateratorRx',
 	// The mqtt topic that the data flows through
-	mqttTopic: 'TestSub',
-	// The mqtt topic were Load Balancer listens
-	mqttLoadBalancerTopic: 'LoadBalancerTopic',
-	// The mqtt topic were Trilaterator pods are listening
-	mqttTrilateratorTopic: 'TrilateratorTopic',
-	// The mqtt topic were Aggregator listens
-	mqttAggregatorTopic: 'AggregatorTopic',
-	// The path to the sqlite database
-	sqliteDB: '../db/data.db'
+	TrilateratorTxTopic: 'TrilateratorTx',
+	// The mqtt topic that the data flows through
+	HeatmapTxTopic: 'HeatmapTx',
+	// The username that we make the requests
+	reqUser: 'mqttFilter',
+	// The path to the logging lib
+	logger: './logger.js'
 };
 
 module.exports = config;

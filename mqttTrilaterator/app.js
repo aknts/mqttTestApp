@@ -3,31 +3,29 @@ console.log('Code start.');
 console.log('Triangulating client mqtt data.');
 
 // [Settings]
-// retrieve the configuration settings
+// Configuration settings
 var config = require('./config.js');
 
 // [Libraries]
+const l = require(config.logger);
+var mqttmod = require('./mqttmod.js');
+
+// [Libraries]
 var mqttmod = require('./mqttmod.js')
-var filter = require('./filter.js');
-//var trilaterator = require('./trilaterator.js');
 
 // [Global variables]
 var data = [];
 
 // [Functions]
-function sendToAggregator(msg){
-//	console.log(msg);
-	mqttmod.send(config.mqttBroker,config.mqttAggregatorTopic,msg);
+function sendToHeatmap(msg){
+	console.log(msg);
+	mqttmod.send(config.mqttBroker,config.HeatmapTxTopic,msg,finalizeSending);
 }
 
-function filterMessages(msg) {
-	// Example of receiving data
-	// {"uidTimestamp":"ODQ6MWI6NWU6NmM6ZTQ6ODIuMTUzMjA0MjAzNA==","signalArray":[{"did":10,"rssi":-93},{"did":10,"rssi":-93},{"did":10,"rssi":-93},{"did":10,"rssi":-93}]}
-	console.log('Inside filterMessages');
-	console.log(msg);
-	measurement = filter.removeDuplicates(JSON.parse(msg));
-	console.log(measurement);
-}
+function finalizeSending() {
+	l.log('INFO','Data sent to heatmap');
+}	
+
 /*
 function ogfiltersend(msg){
 			case 'message':
@@ -50,7 +48,7 @@ function ogfiltersend(msg){
 }
 */
 // [Execution]
-mqttmod.receive(config.mqttBroker,config.mqttTrilateratorTopic,sendToAggregator);
+mqttmod.receive(config.mqttBroker,config.TrilateratorRxTopic,sendToHeatmap);
 //mqttmod.receive(config.mqttBroker,config.mqttTrilateratorTopic,filterMessages);
 
 // [Ending banner]

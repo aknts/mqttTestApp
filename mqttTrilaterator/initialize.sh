@@ -12,6 +12,7 @@ apt-get install -y nodejs
 sudo apt-get -y install npm
 sudo npm config set strict-ssl false
 sudo npm install forever -g
+sudo npm install mqtt
 APP_PATH="/opt/mqttTrilerator"
 LOG_PATH="$APP_PATH/logs"
 cd $APP_PATH
@@ -20,4 +21,4 @@ sudo wget https://raw.githubusercontent.com/aknts/mqttStrand/master/mqttTrilater
 sudo wget https://raw.githubusercontent.com/aknts/mqttStrand/master/mqttTrilaterator/config.js
 fileout="$LOG_PATH/$COMPONENT_$(date +%Y-%m-%d.%H:%M:%S).out"
 fileerr="$LOG_PATH/$COMPONENT_$(date +%Y-%m-%d.%H:%M:%S).err"
-sudo forever start -o $fileout -e $fileerr -a $COMPONENT_PATH/app.js`
+sudo forever start -o $fileout -e $fileerr -a app.js`
