@@ -7,7 +7,7 @@ console.log('Test app for realying mqtt messages between topics.');
 var config = require('./config.js');
 
 // [Libraries]
-const l = require(config.logger);
+const l = require('./logger.js');
 var mqttmod = require('./mqttmod.js');
 
 // [Functions]
