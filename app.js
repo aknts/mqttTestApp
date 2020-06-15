@@ -5,6 +5,7 @@ console.log('Test app for realying mqtt messages between topics.');
 // [Settings]
 // Configuration settings
 console.log(process.env.appconfig);
+l.log('INFO',process.env.appconfig);
 var config = require('./config.js');
 
 // [Libraries]
