@@ -7,12 +7,12 @@ console.log('Test app for realying mqtt messages between topics.');
 //var getconfig = process.argv[2];
 //var argconfig = JSON.parse(getconfig);
 //console.log(argconfig);
-//l.log('INFO',process.env.appconfig);
-//var config = require('./config.js');
+l.log('INFO',process.env.appconfig);
+var config = require('./config.js');
 console.log(config);
 // [Libraries]
-//const l = require('mqttlogger');
-//var mqttmod = require('mqttmod');
+const l = require('mqttlogger');
+var mqttmod = require('mqttmod');
 
 // [Functions]
 function sendToNext(msg){
@@ -25,7 +25,7 @@ function finalizeSending() {
 }
 
 // [Execution]
-//mqttmod.receive(config.broker,config.rxtopic,sendToNext);
+mqttmod.receive(config.broker,config.rxtopic,sendToNext);
 
 // [Ending banner]
 console.log('Code end');
