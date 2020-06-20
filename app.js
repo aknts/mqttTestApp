@@ -29,4 +29,3 @@ mqttmod.receive(config.broker,config.rxtopic,sendToNext);
 
 // [Ending banner]
 console.log('Code end');
-~
