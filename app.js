@@ -7,7 +7,7 @@ console.log('Test app for realying mqtt messages between topics.');
 //var getconfig = process.argv[2];
 //var argconfig = JSON.parse(getconfig);
 //console.log(argconfig);
-var config = JSON.parse(require('./config.js'));
+var config = JSON.parse(Buffer.from(require('./config.js'), 'base64').toString());
 console.log(config);
 console.log(config.broker);
 console.log(config.rxtopic);
