@@ -11,7 +11,7 @@ var config = JSON.parse(Buffer.from(require('./config.js'), 'base64').toString()
 console.log(config);
 console.log(config.broker);
 console.log(config.previousnode);
-console.log(config.previousnode);
+console.log(config.nextnode);
 console.log(config.mynodeid);
 //console.log(config.rxtopic);
 //console.log(config.txtopic);
@@ -22,7 +22,7 @@ var mqttmod = require('mqttmod');
 // [Functions]
 function sendToNext(msg){
         console.log(msg);
-        mqttmod.send(config.broker,config.txtopic,msg,finalizeSending);
+        mqttmod.send(config.broker,config.nextnode,msg,finalizeSending);
 }
 
 function finalizeSending() {
@@ -30,7 +30,7 @@ function finalizeSending() {
 }
 
 // [Execution]
-mqttmod.receive(config.broker,config.rxtopic,sendToNext);
+mqttmod.receive(config.broker,config.mynodeid,sendToNext);
 
 // [Ending banner]
 console.log('Code end');
