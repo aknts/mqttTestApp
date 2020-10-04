@@ -10,8 +10,11 @@ console.log('Test app for realying mqtt messages between topics.');
 var config = JSON.parse(Buffer.from(require('./config.js'), 'base64').toString());
 console.log(config);
 console.log(config.broker);
-console.log(config.rxtopic);
-console.log(config.txtopic);
+console.log(config.previousnode);
+console.log(config.previousnode);
+console.log(config.mynodeid);
+//console.log(config.rxtopic);
+//console.log(config.txtopic);
 // [Libraries]
 const l = require('mqttlogger');
 var mqttmod = require('mqttmod');
