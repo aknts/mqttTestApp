@@ -26,7 +26,7 @@ const l = require('mqttlogger');
 var mqttmod = require('mqttmod');
 
 // Good morning
-mqttmod.send(testbroker,logtopic,banner,finalizeSending);
+mqttmod.send(broker,logtopic,banner,finalizeSending);
 
 // [Functions]
 function sendToNext(msg){
