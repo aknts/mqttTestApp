@@ -8,8 +8,11 @@ console.log('Test app for realying mqtt messages between topics.');
 //var argconfig = JSON.parse(getconfig);
 //console.log(argconfig);
 var config = JSON.parse(Buffer.from(require('./config.js'), 'base64').toString());
+//var broker = config.broker;
+var broker = config.globalsetting.broker;
 console.log(config);
 console.log(config.broker);
+console.log(config.globalsetting.broker);
 console.log(config.previousnode);
 console.log(config.nextnode);
 console.log(config.mynodeid);
@@ -22,7 +25,7 @@ var mqttmod = require('mqttmod');
 // [Functions]
 function sendToNext(msg){
         console.log(msg);
-        mqttmod.send(config.broker,config.nextnode,msg,finalizeSending);
+        mqttmod.send(broker,config.nextnode,msg,finalizeSending);
 }
 
 function finalizeSending() {
@@ -30,7 +33,7 @@ function finalizeSending() {
 }
 
 // [Execution]
-mqttmod.receive(config.broker,config.mynodeid,sendToNext);
+mqttmod.receive(broker,config.mynodeid,sendToNext);
 
 // [Ending banner]
 console.log('Code end');
