@@ -8,8 +8,8 @@ console.log('Test app for realying mqtt messages between topics.');
 //var argconfig = JSON.parse(getconfig);
 //console.log(argconfig);
 var config = JSON.parse(Buffer.from(require('./config.js'), 'base64').toString());
-//var broker = config.broker;
-var broker = config.globalsettings.broker;
+var broker = config.broker;
+var testbroker = config.globalsettings.broker;
 var logtopic = config.globalsettings.logtopic;
 var banner = config.appsettings.banner+config.mynodeid;
 
@@ -26,7 +26,7 @@ const l = require('mqttlogger');
 var mqttmod = require('mqttmod');
 
 // Good morning
-mqttmod.send(broker,logtopic,banner,finalizeSending);
+mqttmod.send(testbroker,logtopic,banner,finalizeSending);
 
 // [Functions]
 function sendToNext(msg){
