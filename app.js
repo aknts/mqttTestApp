@@ -11,7 +11,7 @@ var config = JSON.parse(Buffer.from(require('./config.js'), 'base64').toString()
 //var broker = config.broker;
 var broker = config.globalsettings.broker;
 var logtopic = config.globalsettings.logtopic;
-var banner = config.appsettings.banner;
+var banner = config.appsettings.banner+config.mynodeid;
 
 console.log(config);
 console.log(config.broker);
