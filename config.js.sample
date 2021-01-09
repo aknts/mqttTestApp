@@ -1,0 +1,4 @@
+
+//{"globalsettings":{"broker":"mqtt://192.168.2.240:1883","logtopic":"global/logz"},"nextnode":0,"mynodeid":"b3e5aac371d7f8","appname":"mqtttestapp","appsettings":{"banner":"My ID is: "}}
+var config = 'eyJnbG9iYWxzZXR0aW5ncyI6eyJicm9rZXIiOiJtcXR0Oi8vMTkyLjE2OC4yLjI0MDoxODgzIiwibG9ndG9waWMiOiJnbG9iYWwvbG9neiJ9LCJuZXh0bm9kZSI6MCwibXlub2RlaWQiOiJiM2U1YWFjMzcxZDdmOCIsImFwcG5hbWUiOiJtcXR0dGVzdGFwcCIsImFwcHNldHRpbmdzIjp7ImJhbm5lciI6Ik15IElEIGlzOiAifX0=';
+module.exports = config;
