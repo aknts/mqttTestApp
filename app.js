@@ -10,9 +10,9 @@ var banner = config.appsettings.banner+config.mynodeid;
 // Functions
 var sendToNext = function sendToNext(msg){
         console.log(msg);
-        l.debug(msg.payload);
+        l.debug(msg);
         l.debug('Before check');
-        if (msg.payload == "stop") {
+        if (msg == "stop") {
                 l.debug('After check');
                 throw 'Exiting';
         }
