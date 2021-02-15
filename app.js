@@ -36,4 +36,4 @@ mqttmod.send(broker,logtopic,banner,finalizeSending);
 mqttmod.receive(broker,config.mynodeid,sendToNext);
 
 // Ending 
-console.log('Code end');
+l.debug('Test app started');
