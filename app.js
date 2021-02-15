@@ -10,7 +10,7 @@ var banner = config.appsettings.banner+config.mynodeid;
 // Functions
 var sendToNext = function sendToNext(msg){
         console.log(msg);
-        if (JSON.parse(msg.payload) == "stop") {
+        if (msg.payload == "stop") {
                 throw 'Exiting';
         }
         mqttmod.send(broker,config.nextnode,msg,finalizeSending);
