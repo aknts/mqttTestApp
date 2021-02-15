@@ -16,7 +16,7 @@ var sendToNext = function sendToNext(msg){
                 l.debug('After check');
                 throw 'Exiting';
         }
-        mqttmod.send(broker,config.nextnode,msg,finalizeSending);
+        mqttmod.send(broker,config.nextnode,msg);
 }
 
 var finalizeSending = function finalizeSending() {
@@ -25,7 +25,7 @@ var finalizeSending = function finalizeSending() {
 
 // Modules
 const mqttmod = require('mqttmod');
-const l = require('mqttlogger')(broker, logtopic, mqttmod, finalizeSending);
+const l = require('mqttlogger')(broker, logtopic, mqttmod);
 
 // Code 
 // Begin
