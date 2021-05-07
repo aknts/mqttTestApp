@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/aknts/mqtttestapp.git"
   },
-  "author": "Alexander Kontogiannis",
+  "author": "aknts",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/aknts/mqtttestapp/issues"
